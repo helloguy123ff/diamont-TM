@@ -1,11 +1,12 @@
+<!-- Página de registro -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diamont Navigator</title>
-<style>
-body {
+    <title>Registro</title>
+  <style>
+      body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -33,18 +34,11 @@ body {
     z-index: 1;
 }
 
-.logo {
-    width: 500px; /* Ajuste conforme necessário */
-    height: auto;
-    position: absolute;
-}
-
 #urlInput {
     width: 70%;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin-left: 120px; /* Ajuste conforme necessário para acomodar a logo */
 }
 
 button {
@@ -66,26 +60,72 @@ button:hover {
     border: none;
 }
 
-
-</style>
+  </style>
 </head>
 <body>
-    <div class="background-image">
-        <div class = "img">
-            <img src="logo.png" alt="Logo do site" class="logo">
-        </div>
-        <div class="navbar">
-            <input type="text" id="urlInput" placeholder="Digite a URL">
-            <button onclick="navigate()">Ir</button>
-        </div>
-        <iframe id="browserFrame"></iframe>
+    <div class="container">
+        <h2>Registro</h2>
+        <form action="registro.php" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Registrar</button>
+        </form>
     </div>
+</body>
+</html>
 
+<!-- Página de login -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form action="login.php" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
+
+<!-- Página de pesquisa e resultados -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa e Resultados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Pesquisa</h2>
+        <form action="pesquisa.php" method="get">
+            <input type="text" name="consulta" placeholder="Digite sua consulta" required>
+            <button type="submit">Pesquisar</button>
+        </form>
+        <div id="resultados"></div>
+    </div>
     <script>
-      function navigate() {
-    var url = document.getElementById("urlInput").value;
-    document.getElementById("browserFrame").src = url;
-}
+        document.addEventListener('DOMContentLoaded', function() {
+    // Capturar o formulário de pesquisa
+    const form = document.querySelector('form');
+
+    // Manipular o evento de envio do formulário
+    form.addEventListener('submit', function(event) {
+        // Prevenir o comportamento padrão do formulário
+        event.preventDefault();
+
+        // Obter o valor da consulta de pesquisa
+        const consulta = form.querySelector('
 
     </script>
 </body>
